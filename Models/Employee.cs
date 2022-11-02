@@ -10,6 +10,6 @@ namespace NguyenThuyDungBTH2.Models
         public string? EmployeeID { get; set; }
         [Required(ErrorMessage="Tên nhân viên không được để trống")]
         public string? EmployeeName { get; set; }
-        public int EmployeeAge { get; set; }
+        public string? EmployeeAge { get; set; }
     }
 }

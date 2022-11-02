@@ -1,22 +1,36 @@
 @model IEnumerable<NguyenThuyDungBTH2.Models.Employee>
+    @{
+        ViewData["Title"]="Index";
+    }
     <p>
-        <a class="btn btn-primary" asp-action ="Create">Create a new Employee</a>
+        <a asp-action ="Upload">Create New</a>
     </p>
-    <table class=" table table-all">
-        <tr>
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>Employee Age</th>
-        </tr>
+    <table class=" table ">
+        <thead>
+            <tr>
+                <th></th>
+                
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model =>model.EmployeeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model =>model.EmployeeAge)
+                </th>
+                
+            </tr>
+        </thead>
+        
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(m => item.EmployeeID)</td>
+                <td></td>
                 <td>@Html.DisplayFor(m => item.EmployeeName)</td>
                 <td>@Html.DisplayFor(m => item.EmployeeAge)</td>
                 <td>
-                <a asp-action="Edit" asp-route-id="@item.EmployeeID">Sửa</a> |
-                <a asp-action="Delete" asp-route-id="@item.EmployeeID">Xóa</a>
+                <a asp-action="Edit" asp-route-id="@item.EmployeeID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployeeID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployeeID">Delete</a>
                 </td>
             </tr>
         }

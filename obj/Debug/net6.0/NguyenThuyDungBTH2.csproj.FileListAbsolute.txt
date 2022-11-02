@@ -282,3 +282,7 @@ D:\PTPM\NguyenThuyDungBTH2\obj\Debug\net6.0\refint\NguyenThuyDungBTH2.dll
 D:\PTPM\NguyenThuyDungBTH2\obj\Debug\net6.0\NguyenThuyDungBTH2.pdb
 D:\PTPM\NguyenThuyDungBTH2\obj\Debug\net6.0\NguyenThuyDungBTH2.genruntimeconfig.cache
 D:\PTPM\NguyenThuyDungBTH2\obj\Debug\net6.0\ref\NguyenThuyDungBTH2.dll
+D:\PTPM\NguyenThuyDungBTH2\bin\Debug\net6.0\EPPlus.dll
+D:\PTPM\NguyenThuyDungBTH2\bin\Debug\net6.0\EPPlus.Interfaces.dll
+D:\PTPM\NguyenThuyDungBTH2\bin\Debug\net6.0\EPPlus.System.Drawing.dll
+D:\PTPM\NguyenThuyDungBTH2\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
