@@ -1,13 +1,26 @@
 @model IEnumerable<NguyenThuyDungBTH2.Models.Person>
+    @{
+        ViewData["Title"]="Index";
+    }
     <p>
-        <a class="btn btn-primary" asp-action ="Create">Create a new Person</a>
+        <a asp-action ="Upload">Create New</a>
     </p>
-    <table class=" table table-all">
-        <tr>
-            <th>Person ID</th>
-            <th>Person Name</th>
-            <th>Person Age</th>
-        </tr>
+    <table class=" table ">
+        <thead>
+            <tr>
+                <th>
+                     @Html.DisplayNameFor(model =>model.PersonID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model =>model.PersonName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model =>model.PersonAge)
+                </th>
+                
+            </tr>
+        </thead>
+        
         @foreach (var item in Model)
         {
             <tr>
@@ -15,10 +28,10 @@
                 <td>@Html.DisplayFor(m => item.PersonName)</td>
                 <td>@Html.DisplayFor(m => item.PersonAge)</td>
                 <td>
-                <a asp-action="Edit" asp-route-id="@item.PersonID">Sửa</a> |
-                <a asp-action="Delete" asp-route-id="@item.PersonID">Xóa</a>
+                <a asp-action="Edit" asp-route-id="@item.PersonID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PersonID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PersonID">Delete</a>
                 </td>
             </tr>
-            
         }
     </table>

@@ -1,20 +1,31 @@
 @model IEnumerable<NguyenThuyDungBTH2.Models.Student>
+    @{
+        ViewData["Title"]="Index";
+    }
     <p>
-        <a class="btn btn-primary" asp-action ="Create">Create a new Student</a>
+        <a asp-action ="Upload">Create New</a>
     </p>
-    <table class= " table table-all">
-        <tr>
-            <th>Student ID</th>
-            <th>Student Name</th>
-        </tr>
+    <table class=" table ">
+        <thead>
+            <tr>
+                <th>
+                     @Html.DisplayNameFor(model =>model.StudentID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model =>model.StudentName)
+                </th>
+            </tr>
+        </thead>
+        
         @foreach (var item in Model)
         {
             <tr>
                 <td>@Html.DisplayFor(m => item.StudentID)</td>
                 <td>@Html.DisplayFor(m => item.StudentName)</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.StudentID">Sửa</a> |
-                    <a asp-action="Delete" asp-route-id="@item.StudentID">Xóa</a>
+                <a asp-action="Edit" asp-route-id="@item.StudentID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StudentID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StudentID">Delete</a>
                 </td>
             </tr>
         }

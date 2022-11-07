@@ -11,6 +11,6 @@ namespace NguyenThuyDungBTH2.Models
 
         [Required(ErrorMessage="Tên person không được để trống")]
         public string? PersonName { get; set; }
-        public int PersonAge { get; set; }
+        public string? PersonAge { get; set; }
     }
 }

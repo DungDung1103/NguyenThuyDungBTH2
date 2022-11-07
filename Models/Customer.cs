@@ -10,6 +10,6 @@ namespace NguyenThuyDungBTH2.Models
         public string? CustomerID { get; set; }
          [Required(ErrorMessage="Tên khách hàng không được để trống")]
         public string? CustomerName { get; set; }
-        public int CustomerAge { get; set; }
+        public string? CustomerAge { get; set; }
     }
 }
