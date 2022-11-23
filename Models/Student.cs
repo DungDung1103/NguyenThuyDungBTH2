@@ -6,11 +6,13 @@ namespace NguyenThuyDungBTH2.Models
         // khai báo thuộc tính
         [Key]
         [Required(ErrorMessage="Mã sinh viên không được để trống")]
-       
         public string? StudentID { get; set; }
 
         [Required(ErrorMessage="Tên sinh viên không được để trống")]
         public string? StudentName { get; set; }
+        public string? FacultyID { get; set; }
+        [ForeignKey("FacultyID")]
+        public Faculty? Faculty { get;set; }
         
     }
 }

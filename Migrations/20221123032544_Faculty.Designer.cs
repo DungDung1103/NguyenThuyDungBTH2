@@ -10,8 +10,8 @@ using NguyenThuyDungBTH2.Data;
 namespace NguyenThuyDungBTH2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221012083811_Customer")]
-    partial class Customer
+    [Migration("20221123032544_Faculty")]
+    partial class Faculty
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,12 +21,14 @@ namespace NguyenThuyDungBTH2.Migrations
             modelBuilder.Entity("NguyenThuyDungBTH2.Models.Customer", b =>
                 {
                     b.Property<string>("CustomerID")
+                        .HasMaxLength(5)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("CustomerAge")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("CustomerAge")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CustomerName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("CustomerID");
@@ -37,12 +39,14 @@ namespace NguyenThuyDungBTH2.Migrations
             modelBuilder.Entity("NguyenThuyDungBTH2.Models.Employee", b =>
                 {
                     b.Property<string>("EmployeeID")
+                        .HasMaxLength(5)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("EmployeeAge")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("EmployeeAge")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("EmployeeName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("EmployeeID");
@@ -50,15 +54,30 @@ namespace NguyenThuyDungBTH2.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("NguyenThuyDungBTH2.Models.Faculty", b =>
+                {
+                    b.Property<string>("FacultyID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FacultyName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("FacultyID");
+
+                    b.ToTable("Faculties");
+                });
+
             modelBuilder.Entity("NguyenThuyDungBTH2.Models.Person", b =>
                 {
                     b.Property<string>("PersonID")
+                        .HasMaxLength(5)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PersonAge")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("PersonAge")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PersonName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("PersonID");
@@ -71,12 +90,27 @@ namespace NguyenThuyDungBTH2.Migrations
                     b.Property<string>("StudentID")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("FacultyID")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("StudentName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("StudentID");
 
+                    b.HasIndex("FacultyID");
+
                     b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("NguyenThuyDungBTH2.Models.Student", b =>
+                {
+                    b.HasOne("NguyenThuyDungBTH2.Models.Faculty", "Faculty")
+                        .WithMany()
+                        .HasForeignKey("FacultyID");
+
+                    b.Navigation("Faculty");
                 });
 #pragma warning restore 612, 618
         }

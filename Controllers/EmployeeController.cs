@@ -20,22 +20,7 @@ namespace NguyenThuyDungBTH2.Controllers
         //     var model = await _context.Employees.ToListAsync();
         //     return View(model);
         // }
-        // public IActionResult Create()
-        // {
-        //     return View();
-        // }
-        // [HttpPost]
-        // public async Task<IActionResult> Create (Employee std)
-        // {
-        //     if(ModelState.IsValid)
-        //     {
-        //         _context.Add(std);
-        //         await _context.SaveChangesAsync();
-        //         return RedirectToAction(nameof(Index));
-        //     }
-        //     return View(std);
-            
-        // }
+      
         //  //GET: Student/Edit/5
         // public async Task<IActionResult> Edit(string id)
         // {
@@ -120,6 +105,22 @@ namespace NguyenThuyDungBTH2.Controllers
             return View(await _context.Employees.ToListAsync());
 
         }
+           public IActionResult Create()
+        {
+            return View();
+         }
+         [HttpPost]
+         public async Task<IActionResult> Create (Employee std)
+        {
+            if(ModelState.IsValid)
+            {
+               _context.Add(std);
+               await _context.SaveChangesAsync();
+               return RedirectToAction(nameof(Index));
+            }
+            return View(std);
+            
+         }
         public async Task<IActionResult> Upload()
         {
             return View();
